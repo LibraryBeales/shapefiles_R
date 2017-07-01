@@ -3,7 +3,7 @@ library("rgdal", lib.loc="~/R/win-library/3.3")
 library("dplyr", lib.loc="~/R/win-library/3.3")
 library("ggplot", lib.loc="~/R/win-library/3.3")
 
-higeo= readOGR(dsn=".", layer="FILENAME HERE") #Read in shape file
+higeo= readOGR(dsn=".", layer="ahupuaa") #Read in shape file
 higeo@data$id = rownames(higeo@data) #add row numbers as a column
 higeo.points = fortify(higeo, region="id") #pull point data from each “region”
 higeo.df = inner_join(higeo.points, higeo@data, by="id") #join individual points back to data via id field
